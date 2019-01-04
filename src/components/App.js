@@ -18,7 +18,7 @@ class App extends Component {
     }];
     return (
       <div className="App">
-        <News news={news} name="Emrullah"/>
+        <News news={news} name="Emrullah" />
       </div>
     );
   }
