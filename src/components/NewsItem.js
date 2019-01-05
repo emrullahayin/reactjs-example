@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class NewsItem extends Component {
   constructor(props){
     super();
-    console.log(props)
   };
   static proptypes = {
     newsData: PropTypes.shape({

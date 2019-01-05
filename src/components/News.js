@@ -24,7 +24,7 @@ class News extends Component {
       <div>
         {this.props.name}
         {elements}
-        <NewsForm />
+        <NewsForm addNews={this.props.addNews} />
       </div>
     )
   }

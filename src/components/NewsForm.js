@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 
 export class NewsForm extends Component {
-  addButton(){
-    console.log('Hello');
+  constructor(props) {
+    super();
+  }
+  addButton = () => {
+    this.props.addNews();
   }
   render() {
     return (
       <div>
-        <button onClick={this.addButton}>Add</button>
+        <button onClick={() => this.addButton()}>Add</button>
       </div>
     )
   }
