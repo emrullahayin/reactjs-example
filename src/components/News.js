@@ -10,6 +10,9 @@ class News extends Component {
       PropTypes.string
     ])
   };
+  static defaultProps = {
+    name: "Emrullah"
+  }
   render() {
     const elements = this.props.news.map(news =>
       <NewsItem
@@ -18,6 +21,7 @@ class News extends Component {
     );
     return (
       <div>
+        {this.props.name}
         {elements}
       </div>
     )

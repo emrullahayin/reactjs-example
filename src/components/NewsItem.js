@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class NewsItem extends Component {
-  // newsData: PropTypes.shape({
-  //   id: PropTypes.number,
-  //   title: PropTypes.string,
-  //   description: PropTypes.string
-  // }),
+  constructor(props){
+    super();
+    console.log(props)
+  };
+  static proptypes = {
+    newsData: PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      description: PropTypes.string
+    }),
+  };
   render() {
-    const { title, description} = this.props.newsData;
+    const { title, description } = this.props.newsData;
     return (
       <div>
         <h1 className="title">{title}</h1>
