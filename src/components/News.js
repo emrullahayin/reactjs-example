@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NewsItem from './NewsItem';
+import NewsForm from './NewsForm';
 
 class News extends Component {
   static propTypes = {
@@ -23,6 +24,7 @@ class News extends Component {
       <div>
         {this.props.name}
         {elements}
+        <NewsForm />
       </div>
     )
   }
