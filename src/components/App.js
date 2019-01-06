@@ -23,7 +23,6 @@ class App extends Component {
       title: "title 4",
       description: "description 4"
     });
-    console.log(news)
   };
   render() {
     return (

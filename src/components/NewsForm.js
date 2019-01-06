@@ -4,6 +4,7 @@ export class NewsForm extends Component {
   constructor(props) {
     super();
   }
+  
   addButton = () => {
     this.props.addNews();
   }
