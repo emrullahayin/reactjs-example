@@ -60,7 +60,7 @@ export class App extends Component {
           onClick={this.handleAddItem}>Add</button>
         <ul>
           {data.map((item, index) => {
-            return <li key={index} onClick={this.handleDeleteItem.bind(this, item)}>{item}<del>Delete</del></li>
+            return <li key={index}>{item}<del onClick={this.handleDeleteItem.bind(this, item)}>Delete</del></li>
           })}
         </ul>
       </div>
