@@ -20,7 +20,6 @@ export class App extends Component {
   };
   handleAddItem() {
     let { text, data, errorValid } = this.state;
-    debugger;
     if (text.length) {
       if (data.length) {
         for (var i = 0; i < data.length; i++) {
