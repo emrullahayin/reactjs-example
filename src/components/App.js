@@ -6,7 +6,8 @@ export class App extends Component {
     this.state = {
       data: [],
       text: "",
-      errorValid: false
+      errorValid: false,
+      errorText: "Please check"
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
@@ -23,6 +24,7 @@ export class App extends Component {
     if (text.length) {
       if (data.length) {
         for (var i = 0; i < data.length; i++) {
+          errorValid = false;
           if (data[i] === text) {
             errorValid = true;
           }
@@ -31,9 +33,9 @@ export class App extends Component {
       } else {
         data.push(text)
       }
-      this.setState(
-        this.state
-      )
+      this.setState(() => ({
+        errorValid
+      }))
     }
   }
   handleDeleteItem(item) {
@@ -47,17 +49,18 @@ export class App extends Component {
     )
   }
   render() {
-    let { data, errorValid } = this.state;
+    let { data, errorValid, errorText } = this.state;
     return (
       <div>
         <input
           className={errorValid === true ? "error" : ""}
           type="search"
-          placeholder="Ekle"
+          placeholder="Value..."
           onChange={this.handleChange} />
         <button
           type="button"
           onClick={this.handleAddItem}>Add</button>
+        <div className={errorValid === true ? "alert error" : "hidden"}>{errorText}</div>
         <ul>
           {data.map((item, index) => {
             return <li key={index}>{item}<del onClick={this.handleDeleteItem.bind(this, item)}>Delete</del></li>
