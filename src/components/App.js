@@ -7,7 +7,7 @@ export class App extends Component {
       data: [],
       text: "",
       errorValid: false,
-      errorText: "Please check"
+      errorText: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
@@ -48,7 +48,12 @@ export class App extends Component {
     )
   }
   render() {
-    let { data, errorValid, errorText } = this.state;
+    let { data, errorValid, errorText, text } = this.state;
+    if (text.length > 0) {
+      errorText = "You have entered the same value."
+    } else {
+      errorText = "Please enter a value."
+    }
     return (
       <div>
         <input
@@ -59,13 +64,15 @@ export class App extends Component {
         <button
           type="button"
           onClick={this.handleAddItem}>Add</button>
-        <div className={errorValid === true ? "alert error" : "hidden"}>{errorText}</div>
+        {errorValid === true &&
+          <div className="alert error">{errorText}</div>
+        }
         <ul>
           {data.map((item, index) => {
             return <li key={index}>{item}<del onClick={this.handleDeleteItem.bind(this, item)}>Delete</del></li>
           })}
         </ul>
-      </div>
+      </div >
     )
   }
 }
