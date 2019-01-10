@@ -58,7 +58,7 @@ export class App extends Component {
       <div>
         <input
           className={errorValid === true ? "error" : ""}
-          type="search"
+          type="text"
           placeholder="Value..."
           onChange={this.handleChange} />
         <button

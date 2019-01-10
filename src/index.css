@@ -45,6 +45,8 @@ del {
 .alert.error {
     color: red;
     line-height: 1.4;
+    font-style: italic;
+    font-size: 12px;
 }
 
 .hidden {
