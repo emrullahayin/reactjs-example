@@ -13,17 +13,19 @@ export class App extends Component {
     this.handleAddItem = this.handleAddItem.bind(this);
     this.handleDeleteItem = this.handleDeleteItem.bind(this);
   };
+
   handleChange(e) {
     this.setState({
       text: e.target.value
     });
   };
+
   handleAddItem() {
     let { text, data, errorValid } = this.state;
     if (text.length) {
+      errorValid = false;
       if (data.length) {
         for (var i = 0; i < data.length; i++) {
-          errorValid = false;
           if (data[i] === text) {
             errorValid = true;
           }
@@ -32,11 +34,14 @@ export class App extends Component {
       } else {
         data.push(text)
       }
-      this.setState(() => ({
-        errorValid
-      }))
+    } else {
+      errorValid = true;
     }
-  }
+    this.setState(() => ({
+      errorValid
+    }))
+  };
+
   handleDeleteItem(item) {
     for (var i = 0; i < this.state.data.length; i++) {
       if (this.state.data[i] === item) {
@@ -46,7 +51,8 @@ export class App extends Component {
     this.setState(
       this.state
     )
-  }
+  };
+  
   render() {
     let { data, errorValid, errorText, text } = this.state;
     if (text.length > 0) {
